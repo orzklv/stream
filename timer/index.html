@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sokhibjon's Stream</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div class="overlay"></div>
+    <div class="terminal">
+      <pre id="figlet">
+    &nbsp;
+     ____  _________    ______  _____
+    / __ \/ ____/   |  / __ \ \/ /__ \
+   / /_/ / __/ / /| | / / / /\  / / _/
+  / _, _/ /___/ ___ |/ /_/ / / / /_/
+ /_/ |_/_____/_/  |_/_____/ /_/ (_)
+  </pre
+      >
+      <div class="output" style="text-align: center">^_^ <</div>
+    </div>
+    <script>
+      const startingStamp = [
+        "\n   __________  _   ___   _________________________   ________\n  / ____/ __ \\/ | / / | / / ____/ ____/_  __/  _/ | / / ____/\n / /   / / / /  |/ /  |/ / __/ / /     / /  / //  |/ / / __\n/ /___/ /_/ / /|  / /|  / /___/ /___  / / _/ // /|  / /_/ /  _ _ _\n\\____/\\____/_/ |_/_/ |_/_____/\\____/ /_/ /___/_/ |_/\\____/  (_|_|_)\n\n",
+        "\n   __________  _   ___   _________________________   ________\n  / ____/ __ \\/ | / / | / / ____/ ____/_  __/  _/ | / / ____/\n / /   / / / /  |/ /  |/ / __/ / /     / /  / //  |/ / / __\n/ /___/ /_/ / /|  / /|  / /___/ /___  / / _/ // /|  / /_/ /  _ _\n\\____/\\____/_/ |_/_/ |_/_____/\\____/ /_/ /___/_/ |_/\\____/  (_|_)\n\n",
+        "\n   __________  _   ___   _________________________   ________\n  / ____/ __ \\/ | / / | / / ____/ ____/_  __/  _/ | / / ____/\n / /   / / / /  |/ /  |/ / __/ / /     / /  / //  |/ / / __\n/ /___/ /_/ / /|  / /|  / /___/ /___  / / _/ // /|  / /_/ /   _\n\\____/\\____/_/ |_/_/ |_/_____/\\____/ /_/ /___/_/ |_/\\____/   (_)\n\n",
+      ];
+      const timeStamp = [
+        "\n   ____\n  / __ \\\n / / / /\n/ /_/ /\n\\____/\n\n",
+        "\n   ___\n  <  /\n  / /\n / /\n/_/\n\n",
+        "\n   ___\n  |__ \\\n  __/ /\n / __/\n/____/\n\n",
+        "\n   _____\n  |__  /\n   /_ <\n ___/ /\n/____/\n\n",
+        "\n   __ __\n  / // /\n / // /_\n/__  __/\n  /_/\n\n",
+        "\n    ______\n   / ____/\n  /___ \\\n ____/ /\n/_____/\n\n",
+      ];
+
+      const timer = () => {
+        let time = 5;
+
+        const x = setInterval(function () {
+          if (time < 0) {
+            clearInterval(x);
+          } else {
+            document.getElementById("figlet").innerHTML = timeStamp[time];
+            time--;
+          }
+        }, 1000);
+      };
+
+      const loader = () => {
+        let loads = 2;
+
+        setInterval(function () {
+          if (loads < 0) {
+            loads = 2;
+            document.getElementById("figlet").innerHTML = startingStamp[loads];
+            loads--;
+          } else {
+            document.getElementById("figlet").innerHTML = startingStamp[loads];
+            loads--;
+          }
+        }, 1000);
+      };
+
+      Promise.resolve(loader()).then(timer());
+    </script>
+  </body>
+</html>
