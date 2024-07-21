@@ -1,10 +1,13 @@
 @import "https://fonts.googleapis.com/css?family=Inconsolata";
 html {
   min-height: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 body {
   box-sizing: border-box;
+  overflow: hidden;
   height: 100%;
   background-color: #000000;
   background-image: radial-gradient(#2c2c2c, #000000),
@@ -13,10 +16,27 @@ body {
   background-size: cover;
   font-family: "Inconsolata", Helvetica, sans-serif;
   font-size: 1.5rem;
-  color: rgba(173, 173, 173, 0.8);
+  /*color: rgba(173, 173, 173, 0.8);*/
   text-shadow:
-    0 0 1ex #bbbbbb,
-    0 0 2px rgba(255, 255, 255, 0.8);
+          0 0 1ex #bbbbbb,
+          0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.bg-static{
+
+}
+
+#figlet{
+  color: rgba(173, 173, 173, 0.8);
+}
+
+.bg-text{
+  font-size: 1.5rem;
+  width: 100%;
+  height: 100%;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .noise {
@@ -102,13 +122,14 @@ body {
 .terminal {
   box-sizing: inherit;
   position: absolute;
-  height: 800px;
-  width: 600;
-  top: 70%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 100%;
-  padding: 4rem;
+  width: 700px;
+  padding: 2rem;
+  background-image: radial-gradient(#2c2c2c, #000000),
+  url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
   text-transform: uppercase;
 }
 
@@ -150,3 +171,41 @@ a::after {
 .errorcode {
   color: white;
 }
+
+@media screen and (max-width: 6500px) {
+  .bg-text{
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 6000px) {
+  .bg-text{
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 4000px) {
+  .bg-text{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 3000px) {
+  .bg-text{
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  .bg-text{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bg-text{
+    font-size: 0.5rem;
+  }
+}
+
+
